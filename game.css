@@ -1,0 +1,39 @@
+/* TITLE ---------------------------------------*/
+
+.mainTitle{
+    text-align: center;
+    align-content: center;
+    font-family: system-ui, -apple-system;
+}
+
+/* GRID ----------------------------------------*/
+
+.gridZone {
+    justify-content: center;
+    display: flex;
+}
+
+.gridNumber {
+    
+}
+
+.gridLetter {
+
+}
+
+.grid {
+    border: 2px solid black;
+    display: inline-block;
+}
+
+.square {
+    display: block;
+    float: left;
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    opacity: 0.6;
+    background-color:steelblue;
+  }
+
+.square:hover {opacity: 1}
