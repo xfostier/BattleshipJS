@@ -11,28 +11,47 @@
     <div class="gridZone">
         <div class="grid" id="array"></div>
             <script>
+                // Numbers
                 row = document.createElement("tr");
                 row.setAttribute("id","numberRow");
                 for (let i = 0; i < 10; i++) { 
                     let column = document.createElement("td");
                     let number = document.createTextNode(i+1);
+                    column.setAttribute("class","gridNumber");
                     column.appendChild(number);
                     row.appendChild(column);
                 }
-                document.getElementById("array").appendChild(row)
-
+                document.getElementById("array").appendChild(row);
+                // Letters
+                let stackRow = document.createElement("tr")
+                column = document.createElement("td");
+                column.setAttribute("id","letterColumn");
+                for (let i = 0; i < 10; i++) { 
+                    let column = document.createElement("tr");
+                    let letter = document.createTextNode(i+1);
+                    column.setAttribute("class","gridLetter");
+                    column.appendChild(letter);
+                    stackRow.appendChild(column);
+                }
+                document.getElementById("array").appendChild(row);
+                // Grid
+                gridColumn = document.createElement("td");
+                gridColumn.setAttribute("id","gridColumn");
                 for (let i = 0; i < 10; i++) { 
                     let row = document.createElement("tr");
                         row.setAttribute("id","array"+i);
-                        document.getElementById("array").appendChild(row);
-                    for (let j = 0; j < 10; j++) {
-                        let square = document.createElement("td");
-                        square.setAttribute("id","square"+i+j);
-                        square.setAttribute("class","square");
-                        square.setAttribute("style","margin: 1px");
-                        square.addEventListener("click", function(){ squareClickHandler("square"+i+j) });
-                        document.getElementById("array"+i).appendChild(square);
-                    }
+                        gridColumn.appendChild(row);
+                        for (let j = 0; j < 10; j++) {
+                            let square = document.createElement("td");
+                            square.setAttribute("id","square"+i+j);
+                            square.setAttribute("class","square");
+                            square.setAttribute("style","margin: 1px");
+                            square.addEventListener("click", function(){ squareClickHandler("square"+i+j) });
+                            row.appendChild(square);
+                            gridColumn.appendChild(row)
+                        }
+                        stackRow.appendChild(gridColumn)
+                        document.getElementById("array").appendChild(stackRow);
                 }
             </script>
     </div>
